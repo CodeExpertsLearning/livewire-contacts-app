@@ -17,4 +17,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contact/edit/{contact}', \App\Http\Livewire\Contact\ContactEdit::class);
+
+
+Route::name('contacts.')->prefix('contacts')->group(function() {
+    Route::get('/', \App\Http\Livewire\Contact\ContactIndex::class)
+        ->name('index');
+        
+    Route::get('/create', \App\Http\Livewire\ContactCreate::class)
+        ->name('create');
+
+    Route::get('/edit/{contact}', \App\Http\Livewire\Contact\ContactEdit::class)
+        ->name('edit');
+});

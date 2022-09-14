@@ -39,6 +39,6 @@ class ContactCreate extends Component
 
     public function render()
     {
-        return view('livewire.contact-create');
+        return view('livewire.contact-create')->layout('welcome');
     }
 }
